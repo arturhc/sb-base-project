@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: app-name
+  profiles:
+    active:
+      - dev
+  cloud:  
+    config:
+      uri: http://localhost:8888
+      username: admin
+      password: s3cr3t
+      retry:
+        initial-interval: 5000
+        max-interval: 7000
+        max-attempts: 50
+      fail-fast: false

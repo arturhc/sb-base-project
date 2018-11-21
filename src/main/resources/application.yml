@@ -1,0 +1,57 @@
+
+debug: true
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  security:
+    user:
+      name: admin
+      password: password
+  datasource:
+    username: root
+    password: admin
+    url: jdbc:mysql://localhost:3306/appname?serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    properties:
+      hibernate.hbm2ddl.auto: none
+      hibernate.format_sql: true
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  jackson:
+    default-property-inclusion: always
+
+logging:
+  file: app-name.log
+  level:
+    root: warn
+    org.springframework.web: warn
+    org.hibernate: error
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+app:
+  swagger:
+    name: AppName
+    description: AppName description
+    version: 1.0.0
+    maintainer-name: Some name
+    maintainer-email: somename@company.com
+    maintainer-url: http://somecompany.com
+
+    
